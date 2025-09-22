@@ -1,6 +1,6 @@
 /*
 Author       : Dreamguys
-Template Name: Preskool - Bootstrap Admin Template
+Template Name: Excellence And Development School - Bootstrap Admin Template
 Version      : 1.0
 */
 
