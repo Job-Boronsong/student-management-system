@@ -26,7 +26,9 @@ def signup_view(request):
         )
         
         # Assign the appropriate role
-        if role == 'student':
+        if role == 'superuser':
+            return redirect('admin_dashboard')
+        elif role == 'student':
             user.is_student = True
         elif role == 'teacher':
             user.is_teacher = True
