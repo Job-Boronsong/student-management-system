@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.crypto import get_random_string
-
+from django.http import JsonResponse
 
 def signup_view(request):
     if request.method == 'POST':
@@ -115,3 +115,11 @@ def teacher_dashboard(request):
 
 def student_dashboard(request):
     return render(request, "dashboard.html")
+
+def clear_all_notifications(request):
+    # TODO: Implement actual notification logic
+    return JsonResponse({"status": "cleared"})
+
+def mark_notifications_as_read(request):
+    # TODO: Implement actual notification logic
+    return JsonResponse({"status": "read"})
