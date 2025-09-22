@@ -42,7 +42,7 @@ def signup_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        email = request.POST['username']
         password = request.POST['password']
         
         user = authenticate(request, username=email, password=password)
