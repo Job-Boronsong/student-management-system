@@ -26,9 +26,7 @@ def signup_view(request):
         )
         
         # Assign the appropriate role
-        if role == 'superuser':
-            return redirect('admin_dashboard')
-        elif role == 'student':
+        if role == 'student':
             user.is_student = True
         elif role == 'teacher':
             user.is_teacher = True
@@ -53,7 +51,9 @@ def login_view(request):
             messages.success(request, 'Login successful!')
             
             # Redirect user based on their role
-            if user.is_admin:
+            if user.is_superuser:
+                return redirect('admin_dashboard')
+            elif user.is_admin:
                 return redirect('admin_dashboard')
             elif user.is_teacher:
                 return redirect('teacher_dashboard')
@@ -105,3 +105,7 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out.')
     return redirect('index')
+
+
+def admin_dashboard(request):
+    return render(request, "admin_dashboard.html")
