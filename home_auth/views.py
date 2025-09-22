@@ -58,7 +58,7 @@ def login_view(request):
             elif user.is_teacher:
                 return redirect('teacher_dashboard')
             elif user.is_student:
-                return redirect('dashboard')
+                return redirect('student_dashboard')
             else:
                 messages.error(request, 'Invalid user role')
                 return redirect('index')  # Redirect to index in case of error
@@ -109,3 +109,9 @@ def logout_view(request):
 
 def admin_dashboard(request):
     return render(request, "admin_dashboard.html")
+
+def teacher_dashboard(request):
+    return render(request, "teacher_dashboard.html")
+
+def student_dashboard(request):
+    return render(request, "dashboard.html")
